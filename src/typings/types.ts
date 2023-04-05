@@ -11,4 +11,4 @@ export interface DOMRect {
   y: number;
 }
 
-export type modeType = "day" | "week" | "month" | "agenda" | "custom";
+export type modeType = "day" | "week" | "month" | "agenda";
