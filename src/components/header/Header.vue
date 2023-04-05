@@ -14,11 +14,6 @@
           :icon="icons.chevronLeft"
           @click="goToPeriod($event, 'previous')"
         />
-        <FontAwesomeIcon
-          class="calendar-header__chevron-arrow calendar-header__chevron-arrow-left"
-          :icon="icons.chevronLeft"
-          @click="goToPeriod($event, 'previous')"
-        />
 
         <FontAwesomeIcon
           class="calendar-header__chevron-arrow calendar-header__chevron-arrow-right"
