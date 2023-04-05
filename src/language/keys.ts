@@ -39,6 +39,20 @@ export const languageKeys = {
     "ru-RU": "День",
     "ar-YE": "يوم",
   },
+  agenda: {
+    "it-IT": "Giorno",
+    "en-US": "Agenda",
+    "de-DE": "Agenda",
+    "sv-SE": "Dag",
+    "zh-CN": "日",
+    "pt-BR": "Dia",
+    "fr-FR": "Jour",
+    "th-TH": "วัน",
+    "nl-NL": "Dag",
+    "ru-RU": "День",
+    "ar-YE": "يوم",
+  },
+
 
   /** Other keys */
   moreEvents: {

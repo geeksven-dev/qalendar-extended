@@ -118,7 +118,7 @@ export default defineComponent({
 
   data() {
     return {
-      modeOptions: ['month', 'week', 'day'] as modeType[],
+      modeOptions: ['month', 'week', 'day', 'agenda'] as modeType[],
       icons: {
         chevronLeft: faChevronLeft,
         chevronRight: faChevronRight,
@@ -176,7 +176,7 @@ export default defineComponent({
     isSmall: {
       handler(value) {
         if (value) this.modeOptions = ['month', 'day'];
-        else this.modeOptions = ['month', 'week', 'day'];
+        else this.modeOptions = ['month', 'week', 'day', 'agenda'];
       },
       immediate: true,
     },
