@@ -1,12 +1,11 @@
 export default {
-  base: "/qalendar/",
+  base: "/qalendar-extended/",
   title: "Qalendar",
   themeConfig: {
     nav: [
       { text: "Guide", link: "/guide" },
       { text: "v1 to v2", link: "/migration" },
-      { text: "Roadmap", link: "https://github.com/tomosterlund/qalendar/projects/1" },
-      { text: "Github", link: "https://github.com/tomosterlund/qalendar" },
+      { text: "Github", link: "https://github.com/geeksven-dev/qalendar-extended" },
     ],
     footer: {
       message: 'Released under the MIT License.',
