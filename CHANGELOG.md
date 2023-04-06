@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.1.0...v1.2.0) (2023-04-06)
+
+
+### Features
+
+* docs updated ([4bbcbab](https://github.com/geeksven-dev/qalendar-extended/commit/4bbcbab5b9a5145c737a06c4a63ea0bd1200004f))
+
 # [1.1.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.0.0...v1.1.0) (2023-04-05)
 
 
