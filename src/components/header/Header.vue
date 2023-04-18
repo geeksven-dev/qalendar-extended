@@ -150,8 +150,8 @@ export default defineComponent({
       default: () => ({}),
     },
     filterCategories: {
-      type: Set,
-      default: () => new Set(),
+      type: Set<string>,
+      default: () => new Set<string>(),
     },
     period: {
       type: Object as PropType<periodInterface>,
