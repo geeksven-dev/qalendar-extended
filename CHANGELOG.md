@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.2.0...v1.3.0) (2023-04-18)
+
+
+### Features
+
+* filtering added ([7cef11c](https://github.com/geeksven-dev/qalendar-extended/commit/7cef11c68eaf14be90b5ec7fcffd275e6af12d9d))
+* filtering added // fix incompatibel types ([f5f5eeb](https://github.com/geeksven-dev/qalendar-extended/commit/f5f5eeb777a84b4f1b75ed758065c8f65b53ca43))
+
 # [1.2.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.1.0...v1.2.0) (2023-04-06)
 
 
