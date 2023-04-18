@@ -70,6 +70,7 @@ export interface configInterface {
     end: number; // integer between 0 and 24
   }
   showCurrentTime?: boolean;
+  filterCategories?: [];
 
   //specific settings for month view
   month?:{

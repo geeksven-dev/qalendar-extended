@@ -30,6 +30,45 @@
         @updated="handlePeriodChange"
       />
 
+      <div class="calendar-header__mode-picker" v-if="filterCategories.size">
+        <div
+          class="calendar-header__mode-value"
+          @click="showFilterPicker = true"
+        >
+          Filter
+        </div>
+
+        <div
+          v-if="showFilterPicker"
+          class="calendar-header__mode-options"
+          style="min-width: 150px;"
+          @mouseleave="showFilterPicker = false"
+        >
+          <template
+            v-for="filter in filterCategories"
+            :key="filter"
+          >
+            <div
+              class="calendar-header__mode-option"
+              :class="'is-' + filter + '-filter'"
+              @click="handleFilterChanged(filter)"
+            >
+              <span>
+              <FontAwesomeIcon
+                :icon="icons.squareCheck"
+                v-if="selectedFilters.has(filter)"
+              />
+              <FontAwesomeIcon
+                :icon="icons.square"
+                v-if="!selectedFilters.has(filter)"
+              />
+                {{filter}}
+                </span>
+            </div>
+          </template>
+        </div>
+      </div>
+
       <div
         v-if="!onlyDayModeIsEnabled"
         class="calendar-header__mode-picker"
@@ -70,11 +109,15 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import DatePicker from './DatePicker.vue';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon,FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome';
 import {
   faChevronLeft,
-  faChevronRight,
+  faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSquareCheck,
+  faSquare
+} from '@fortawesome/free-regular-svg-icons';
 import { configInterface } from '../../typings/config.interface';
 import Time from '../../helpers/Time';
 import { periodInterface } from '../../typings/interfaces/period.interface';
@@ -85,6 +128,8 @@ export default defineComponent({
   name: 'AppHeader',
 
   components: {
+    FontAwesomeLayersText,
+    FontAwesomeLayers,
     DatePicker,
     FontAwesomeIcon,
   },
@@ -104,6 +149,10 @@ export default defineComponent({
       type: Object as PropType<Time>,
       default: () => ({}),
     },
+    filterCategories: {
+      type: Set,
+      default: () => new Set(),
+    },
     period: {
       type: Object as PropType<periodInterface>,
       required: true,
@@ -114,7 +163,7 @@ export default defineComponent({
     },
   },
 
-  emits: ['change-mode', 'updated-period'],
+  emits: ['change-mode', 'updated-period', 'change-filter'],
 
   data() {
     return {
@@ -122,9 +171,13 @@ export default defineComponent({
       icons: {
         chevronLeft: faChevronLeft,
         chevronRight: faChevronRight,
+        squareCheck: faSquareCheck,
+        square: faSquare
       },
       currentPeriod: this.period,
       showModePicker: false,
+      showFilterPicker: false,
+      selectedFilters: new Set()
     };
   },
 
@@ -183,6 +236,15 @@ export default defineComponent({
   },
 
   methods: {
+    handleFilterChanged(filter: string) {
+      if(this.selectedFilters.has(filter)) {
+        this.selectedFilters.delete(filter);
+      } else {
+        this.selectedFilters.add(filter);
+      }
+      this.$emit('change-filter', Array.from(this.selectedFilters));
+    },
+
     handlePeriodChange(value: { start: Date; end: Date; selectedDate: Date }) {
       this.currentPeriod = value;
 

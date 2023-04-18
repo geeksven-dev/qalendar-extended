@@ -5,6 +5,7 @@ const eventTitles = require("../event-properties/event-titles");
 const names = require("../event-properties/names");
 const colors = require("../event-properties/color");
 const descriptions = require("../event-properties/descriptions");
+const categories = require("../event-properties/categories");
 const locations = require("../event-properties/locations");
 const topics = require("../event-properties/topics");
 
@@ -15,6 +16,17 @@ const createEvents = (monthArg = null) => {
   while (events.length < NUMBER_OF_EVENTS) {
     const time = getRandomElementInArray(times);
 
+    let randomCategory = getRandomElementInArray(categories);
+    let color = '';
+
+    if('private' === randomCategory) {
+      color = 'blue';
+    } else if('workspace' === randomCategory) {
+      color = 'yellow';
+    } else if('team' === randomCategory) {
+      color = 'green';
+    }
+
     let event = {
       title: getRandomElementInArray(eventTitles),
       with: getRandomElementInArray(names),
@@ -22,7 +34,8 @@ const createEvents = (monthArg = null) => {
         start: time.start,
         end: time.end,
       },
-      color: getRandomElementInArray(colors),
+      color: color,
+      category: randomCategory,
       isEditable: true,
       id:
         Math.random().toString(16).substring(2, 8) +

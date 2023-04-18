@@ -20,11 +20,13 @@
       <AppHeader
         :key="wasInitialized + mode"
         :config="config"
+        :filterCategories="filterCategories"
         :mode="mode"
         :time="time"
         :period="period"
         :is-small="isSmall"
         @change-mode="handleChangeMode"
+        @change-filter="handleChangeFilter"
         @updated-period="handleUpdatedPeriod"
       />
 
@@ -177,6 +179,7 @@ export default defineComponent({
         this.config?.style?.fontFamily || "'Verdana', 'Open Sans', serif",
       eventRenderingKey: 0, // Works only as a dummy value, for re-rendering Month- and Week components, when events-watcher triggers
       eventsDataProperty: this.events || [],
+      filterCategories: new Set(this.config?.filterCategories) || new Set(),
       isSmall: false,
     };
   },
@@ -270,6 +273,23 @@ export default defineComponent({
 
       this.mode = payload;
       this.$emit('updated-mode', { mode: payload, period: this.period });
+    },
+
+    handleChangeFilter(selectedFilters: string[]) {
+      console.log('Filters changed', selectedFilters);
+      if(!selectedFilters.length) {
+        this.eventsDataProperty = this.events;
+        this.eventRenderingKey = this.eventRenderingKey + 1;
+        return;
+      }
+
+      const events = this.events;
+      const filterResult = events?.filter(event => {
+        return event.category && selectedFilters.includes(event.category);
+      });
+      this.eventsDataProperty = filterResult;
+      this.eventRenderingKey = this.eventRenderingKey + 1;
+
     },
 
     onCalendarResize() {

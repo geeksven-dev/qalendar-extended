@@ -150,6 +150,9 @@ export default defineComponent({
           isDisabled: false,
           // isCustom: true,
         },
+        filterCategories: [
+          'private', 'workspace', 'team'
+        ],
         month: {
           showTrailingAndLeadingDates: false,
         }
