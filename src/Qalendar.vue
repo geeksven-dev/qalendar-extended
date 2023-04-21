@@ -45,6 +45,7 @@
         @delete-event="$emit('delete-event', $event)"
         @interval-was-clicked="$emit('interval-was-clicked', $event)"
         @day-was-clicked="$emit('day-was-clicked', $event)"
+        @day-was-double-clicked="$emit('day-was-double-clicked', $event)"
       >
         <template #weekDayEvent="p">
           <slot
@@ -75,6 +76,7 @@
         :period="period"
         @event-was-clicked="$emit('event-was-clicked', $event)"
         @day-was-clicked="$emit('day-was-clicked', $event)"
+        @day-was-double-clicked="$emit('day-was-double-clicked', $event)"
         @event-was-dragged="handleEventWasUpdated($event, 'dragged')"
         @updated-period="handleUpdatedPeriod($event, true)"
         @edit-event="$emit('edit-event', $event)"
@@ -156,6 +158,7 @@ export default defineComponent({
     'delete-event',
     'interval-was-clicked',
     'day-was-clicked',
+    'day-was-double-clicked'
   ],
 
   data() {

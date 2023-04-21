@@ -5,6 +5,7 @@
     class="calendar-month__weekday"
     :class="{ 'is-droppable': canBeDropped, 'trailing-or-leading': day.isTrailingOrLeadingDate }"
     @click.self="emitDayWasClicked"
+    @dblclick.self="emitDayWasDoubleClicked"
     @dragleave="handleDragLeave"
     @dragover="handleDragOver"
     @drop="handleDrop"
@@ -14,6 +15,7 @@
       v-if="isFirstWeek"
       class="calendar-month__day-name"
       @click="emitDayWasClicked"
+      @dblclick="emitDayWasDoubleClicked"
     >
       {{ day.dayName }}
     </span>
@@ -25,6 +27,7 @@
       <span
         class="calendar-month__day-date"
         @click="emitDayWasClicked"
+        @dblclick="emitDayWasDoubleClicked"
       >
         {{ day.dateTimeString.substring(8, 10) }}
       </span>
@@ -108,6 +111,7 @@ export default defineComponent({
     'event-was-dragged',
     'updated-period',
     'day-was-clicked',
+    'day-was-double-clicked'
   ],
 
   data() {
@@ -184,6 +188,10 @@ export default defineComponent({
 
     emitDayWasClicked() {
       this.$emit('day-was-clicked', this.day.dateTimeString.substring(0, 10));
+    },
+
+    emitDayWasDoubleClicked() {
+      this.$emit('day-was-double-clicked', this.day.dateTimeString.substring(0, 10));
     },
   },
 });

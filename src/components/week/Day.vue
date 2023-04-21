@@ -2,6 +2,7 @@
   <div
     class="calendar-week__day"
     @click.self="$emit('day-was-clicked', day.dateTimeString.substring(0, 10))"
+    @dblclick.self="emitDoubleClick(day.dateTimeString.substring(0, 10), $event)"
   >
     <DayEvent
       v-for="(event, eventIndex) in events"
@@ -42,24 +43,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { dayInterface } from '../../typings/interfaces/day.interface';
+import {defineComponent, PropType} from 'vue';
+import {dayInterface} from '../../typings/interfaces/day.interface';
 import DayEvent from './DayEvent.vue';
 import EventConcurrency from '../../helpers/EventConcurrency';
-import { eventInterface } from '../../typings/interfaces/event.interface';
+import {eventInterface} from '../../typings/interfaces/event.interface';
+import EventPosition from '../../helpers/EventPosition';
 import Time from '../../helpers/Time';
 import {
   configInterface,
   dayIntervalsType,
 } from '../../typings/config.interface';
-import { modeType } from '../../typings/types';
-import DayIntervals, { interval } from '../../helpers/DayIntervals';
+import {modeType} from '../../typings/types';
+import DayIntervals, {interval} from '../../helpers/DayIntervals';
+
 const eventConcurrencyHelper = new EventConcurrency();
+const eventPositionHelper = new EventPosition();
 
 export default defineComponent({
   name: 'Day',
 
-  components: { DayEvent },
+  components: {DayEvent},
 
   props: {
     day: {
@@ -94,6 +98,7 @@ export default defineComponent({
     'event-was-dragged',
     'interval-was-clicked',
     'day-was-clicked',
+    'day-was-double-clicked',
     'drag-start',
     'drag-end',
   ],
@@ -131,15 +136,21 @@ export default defineComponent({
     },
 
     handleClickOnInterval(payload: interval) {
-      const { intervalStart, intervalEnd } = payload;
-      this.$emit('interval-was-clicked', { intervalStart, intervalEnd });
+      const {intervalStart, intervalEnd} = payload;
+      this.$emit('interval-was-clicked', {intervalStart, intervalEnd});
+    },
+
+    emitDoubleClick(dateString: string, event: any) {
+      const offsetPointsInDay = event.offsetY;
+      const time = eventPositionHelper.calculateTimeForPositionInDay(offsetPointsInDay)
+      this.$emit('day-was-double-clicked', dateString + " " + time);
     },
 
     setClickableIntervals() {
       let dayStartTimeString = this.day.dateTimeString
       if (this.time.DAY_START !== 0) {
-        const { hour: startHour } = this.time.getHourAndMinutesFromTimePoints(this.time.DAY_START)
-        dayStartTimeString = this.time.setSegmentOfDateTimeString(dayStartTimeString, { hour: startHour })
+        const {hour: startHour} = this.time.getHourAndMinutesFromTimePoints(this.time.DAY_START)
+        dayStartTimeString = this.time.setSegmentOfDateTimeString(dayStartTimeString, {hour: startHour})
       }
 
       this.intervals = new DayIntervals(

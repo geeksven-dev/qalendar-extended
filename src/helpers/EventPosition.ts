@@ -144,4 +144,11 @@ export default class EventPosition extends Time {
 
     return newMonth
   }
+
+  calculateTimeForPositionInDay(offsetYPointsInDay: number): string {
+    const hour = Math.floor(offsetYPointsInDay / 100).toString();
+    const fractal = offsetYPointsInDay % 100;
+    const minutesInHour = (Math.round(Math.floor(Math.floor(fractal) * 60 / 100) / 5) * 5).toString();
+    return hour.padStart(2, '0') + ":" + minutesInHour.padStart(2, '0');
+  }
 }

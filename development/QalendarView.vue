@@ -21,6 +21,7 @@
         @edit-event="editEvent"
         @delete-event="deleteEvent"
         @day-was-clicked="reactToEvent"
+        @day-was-double-clicked="reactToDbClickEvent"
         @event-was-dragged="handleEventWasDragged"
         @interval-was-clicked="handleIntervalWasClicked"
       >
@@ -184,6 +185,9 @@ export default defineComponent({
   methods: {
     reactToEvent(payload: any) {
       console.log(payload);
+    },
+    reactToDbClickEvent(payload: any) {
+      console.log("dbClick", payload);
     },
 
     updatedPeriod(e) {

@@ -7,6 +7,7 @@
     :mode="mode"
     @event-was-clicked="handleClickOnEvent"
     @day-was-clicked="$emit('day-was-clicked', $event)"
+    @day-was-double-clicked="$emit('day-was-double-clicked', $event)"
   />
 
   <div class="calendar-week__wrapper">
@@ -68,6 +69,7 @@
           @event-was-dragged="handleEventWasDragged"
           @interval-was-clicked="$emit('interval-was-clicked', $event)"
           @day-was-clicked="$emit('day-was-clicked', $event)"
+          @day-was-double-clicked="$emit('day-was-double-clicked', $event)"
           @drag-start="destroyScrollbarAndHideOverflow"
           @drag-end="initScrollbar"
         >
@@ -149,6 +151,7 @@ export default defineComponent({
     'delete-event',
     'interval-was-clicked',
     'day-was-clicked',
+    'day-was-double-clicked'
   ],
 
   data() {

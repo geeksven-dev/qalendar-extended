@@ -16,6 +16,7 @@
           @event-was-clicked="handleClickOnEvent"
           @event-was-dragged="handleEventWasDragged"
           @day-was-clicked="$emit('day-was-clicked', $event)"
+          @day-was-double-clicked="$emit('day-was-double-clicked', $event)"
           @updated-period="$emit('updated-period', $event)"
         >
           <template #monthEvent="p">
@@ -108,6 +109,7 @@ export default defineComponent({
     'event-was-clicked',
     'event-was-dragged',
     'day-was-clicked',
+    'day-was-double-clicked'
   ],
 
   data() {

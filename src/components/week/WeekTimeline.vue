@@ -9,6 +9,7 @@
           time.getDateTimeStringFromDate(now, 'start') === day.dateTimeString,
       }"
       @click="$emit('day-was-clicked', day.dateTimeString.substring(0, 10))"
+      @dblclick="$emit('day-was-double-clicked', day.dateTimeString.substring(0, 10))"
     >
       <div class="week-timeline__day-name">
         {{ day.dayName.substring(0, 2).toUpperCase() }}
@@ -73,7 +74,7 @@ export default defineComponent({
     },
   },
 
-  emits: ['event-was-clicked', 'day-was-clicked'],
+  emits: ['event-was-clicked', 'day-was-clicked', 'day-was-double-clicked'],
 
   data() {
     return {
