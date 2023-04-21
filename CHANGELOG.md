@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.3.0...v1.4.0) (2023-04-21)
+
+
+### Features
+
+* double click for day added ([740ee40](https://github.com/geeksven-dev/qalendar-extended/commit/740ee40f61140e4beac00de91765d928c3f69a90))
+
 # [1.3.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.2.0...v1.3.0) (2023-04-18)
 
 
