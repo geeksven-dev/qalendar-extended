@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.5.0...v1.6.0) (2023-12-14)
+
+
+### Features
+
+* removed spelling typos and unused vars ([e0eee6e](https://github.com/geeksven-dev/qalendar-extended/commit/e0eee6e5516a7c76cbbb8fd77f9a080f8fe2e257))
+
 # [1.5.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.4.0...v1.5.0) (2023-12-14)
 
 
