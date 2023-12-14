@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.4.0...v1.5.0) (2023-12-14)
+
+
+### Features
+
+* double click changed to support minutes ([8af6c53](https://github.com/geeksven-dev/qalendar-extended/commit/8af6c53d7ac6c2934b1ec06d5de05cf46a490770))
+
 # [1.4.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.3.0...v1.4.0) (2023-04-21)
 
 
