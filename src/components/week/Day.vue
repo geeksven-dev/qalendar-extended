@@ -141,9 +141,12 @@ export default defineComponent({
     },
 
     emitDoubleClick(dateString: string, event: any) {
-      const offsetPointsInDay = event.offsetY;
-      const time = eventPositionHelper.calculateTimeForPositionInDay(offsetPointsInDay)
-      this.$emit('day-was-double-clicked', dateString + " " + time);
+      const offsetPointsInDay = event.offsetY - this.time.DAY_START;
+      const hours = String(Math.trunc(offsetPointsInDay / 100)).padStart(2, '0');
+      const perentOfHour = offsetPointsInDay % 100;
+      const minutesInHour = Math.floor((perentOfHour * 60) / 100);
+      const nearest5 = String(Math.ceil((perentOfHour * 60) / 100 / 5) * 5).padStart(2,'0');
+      this.$emit('day-was-double-clicked', dateString + ` ${hours}:${nearest5}:00`);
     },
 
     setClickableIntervals() {
