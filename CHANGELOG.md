@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.8.0...v1.9.0) (2024-04-26)
+
+
+### Features
+
+* agenda fix ([190317b](https://github.com/geeksven-dev/qalendar-extended/commit/190317b2de8257a403d604bc6191daf79112e1c5))
+
 # [1.8.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.7.0...v1.8.0) (2024-04-26)
 
 
