@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.6.0...v1.7.0) (2024-04-26)
+
+
+### Features
+
+* added agenda first impl ([cd64db4](https://github.com/geeksven-dev/qalendar-extended/commit/cd64db48be994bcfc8330ab598698209c6f9a5a2))
+* added agenda first impl // fixed potential undefined ([ceaf4d9](https://github.com/geeksven-dev/qalendar-extended/commit/ceaf4d950e80a01fa81b9f8c98cdd76816b4d1ab))
+
 # [1.6.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.5.0...v1.6.0) (2023-12-14)
 
 
