@@ -20,7 +20,7 @@
       <AppHeader
         :key="wasInitialized + mode"
         :config="config"
-        :filterCategories="filterCategories"
+        :filter-categories="filterCategories"
         :mode="mode"
         :time="time"
         :period="period"
@@ -104,6 +104,8 @@
           />
         </template>
       </Month>
+
+      <AgendaTimeline :events-prop="eventsDataProperty" v-if="mode === 'agenda'"></AgendaTimeline>
     </div>
   </div>
 </template>
@@ -115,6 +117,7 @@ import { configInterface } from './typings/config.interface';
 import Time from './helpers/Time';
 import AppHeader from './components/header/Header.vue';
 import Week from './components/week/Week.vue';
+import AgendaTimeline from "./components/agenda/AgendaTimeline.vue";
 import { modeType } from './typings/types';
 import Month from './components/month/Month.vue';
 import Errors from './helpers/Errors';
@@ -127,6 +130,7 @@ export default defineComponent({
     Month,
     AppHeader,
     Week,
+    AgendaTimeline
   },
 
   props: {
