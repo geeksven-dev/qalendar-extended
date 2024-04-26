@@ -76,10 +76,10 @@ export default defineComponent({
 
   methods: {
     formatTime: function (eventTime: any) {
-      if(eventTime && eventTime.start && eventTime.end) {
+      if(eventTime && eventTime.start && eventTime.end && eventTime.start.indexOf(' ') >= 0 && eventTime.end.indexOf(' ') >= 0) {
         return eventTime.start.split(' ')[1] + " - " + eventTime.end.split(' ')[1];
       } else {
-        return "";
+        return "Ganzer Tag";
       }
     },
     formatDateDe: function (date: string) {
