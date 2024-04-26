@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.7.0...v1.8.0) (2024-04-26)
+
+
+### Features
+
+* date formatting ([fa56abe](https://github.com/geeksven-dev/qalendar-extended/commit/fa56abe35ac732fa1b683550698241f8cf86563b))
+
 # [1.7.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.6.0...v1.7.0) (2024-04-26)
 
 
