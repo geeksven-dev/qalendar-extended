@@ -76,7 +76,11 @@ export default defineComponent({
 
   methods: {
     formatTime: function (eventTime: any) {
-      return eventTime.start.split(' ')[1] + " - " + eventTime.end.split(' ')[1];
+      if(eventTime && eventTime.start && eventTime.end) {
+        return eventTime.start.split(' ')[1] + " - " + eventTime.end.split(' ')[1];
+      } else {
+        return "";
+      }
     },
     formatDateDe: function (date: string) {
       return moment(date).format('DD.MM.YYYY');
