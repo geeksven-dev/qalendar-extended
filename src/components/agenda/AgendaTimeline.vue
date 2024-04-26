@@ -6,7 +6,7 @@
         <div class="event-flyout__info-wrapper">
 
           <div class="agenda-item__row is-title">
-            <div class="agenda-item__icon" :style="{backgroundColor: EVENT_COLORS[evt.color]}"></div>
+            <div class="agenda-item__icon" :style="{backgroundColor: evt && evt.color ? EVENT_COLORS[evt.color] : 'grey'}"></div>
             Meeting: {{ evt.title }}
           </div>
 
