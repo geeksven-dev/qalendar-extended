@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.10.0...v1.11.0) (2024-04-30)
+
+
+### Features
+
+* moment js fix version // second time ([8667351](https://github.com/geeksven-dev/qalendar-extended/commit/866735192033ede038311eb876d0e0a8ffbdda1e))
+
 # [1.10.0](https://github.com/geeksven-dev/qalendar-extended/compare/v1.9.0...v1.10.0) (2024-04-30)
 
 
